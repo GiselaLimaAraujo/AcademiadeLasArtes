@@ -1,0 +1,119 @@
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    background-image: linear-gradient(90deg, #000000 0%, #1a0033 30%, #4b0082 65%, #8A2BE2 100%);
+    color: antiquewhite;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    padding: 1rem;
+    background-image: linear-gradient(90deg, #000000 0%, #1a0033 30%, #4b0082 65%, #8A2BE2 100%);
+    position: sticky;
+    top: 0;
+    z-index: 3;
+    border-bottom: 2px solid #00CED1;
+}
+
+.inicio {
+    gap: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.inicio img {
+    height: 100px;
+    width: 100px;
+    border-radius: 200px;
+}
+
+main {
+    padding: 1rem;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    overflow-x: auto;
+    gap: 2rem;
+    padding-bottom: 1rem;
+}
+
+.filmes, .series {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+}
+
+.filme, .serie {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 20px;
+    flex-shrink: 0;
+    width: 150px;
+    height: 150px;
+}
+
+.filme img, .serie img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    backface-visibility: hidden;
+}
+
+.filme::before, .serie::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.filme::before {
+    background-color: rgba(57, 255, 20, 0.4);
+    mix-blend-mode: screen;
+}
+
+.serie::before {
+    background-color: rgba(255, 20, 147, 0.4);
+    mix-blend-mode: screen;
+}
+
+.filme:hover img, .serie:hover img {
+    transform: scale(1.1);
+    filter: brightness(0.75);
+}
+
+.filme:hover::before, .serie:hover::before {
+    opacity: 1;
+}
+
+.filme p, .serie p {
+    text-align: center;
+    margin-top: 0.5rem;
+    font-weight: bold;
+    font-size: 1rem;
+    pointer-events: none;
+    user-select: none;
+    color: antiquewhite;
+}
+
